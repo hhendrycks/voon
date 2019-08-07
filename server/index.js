@@ -1,25 +1,26 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+const axios = require('axios');
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 // var items = require('../database-mysql');
 // var items = require('../database-mongo');
 
 var app = express();
 
-// UNCOMMENT FOR REACT
-// app.use(express.static(__dirname + '/../react-client/dist'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/../react-client/dist'));
 
-// UNCOMMENT FOR ANGULAR
-// app.use(express.static(__dirname + '/../angular-client'));
-// app.use(express.static(__dirname + '/../node_modules'));
 
-app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
-    if(err) {
-      res.sendStatus(500);
-    } else {
-      res.json(data);
-    }
+app.get('/:zipCode', function (req, res) {
+  console.log("zipCode entered");
+  axios.get(`https://api.darksky.net/forecast/ae237153c7709888817a299211ff1fcd/30.2672,-97.7431`)
+  .then((data) => {
+    res.send(data.data);
+  })
+  .catch((error) => {
+    console.log("error in server:", error);
+    res.send(error)
   });
 });
 
