@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+    letter-spacing: 0.5px
+}
+
+body {
+    font-family: 'Red Hat Display', Helvetica, sans-serif;
+    color: #1d1c1d;
+    background: #fffdfe;
+    margin: 0;
+}
+
+/* lightish purple, gray */
+/* rgb(111, 107, 143) */
+/* rgb(199, 200, 202) */
+button:hover {
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding-bottom: 5px;
+}
+
+.spacing {
+    color: #fffdfe;
+}
+
+.search { 
+    float: right;
+    border: solid 1px #fffdfe;
+    color: #fffdfe;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 16px;
+    width: 100%;
+}
+
+.halfToFull {
+    float: left;
+    width: 100%;
+}
+
+.summary {
+    padding-top: 10px;
+    padding-left: 5%;
+}
+
+@media screen and (min-width: 875px) {
+  .halfToFull {
+      width: 50%;
+  }
+}
+
+@media screen and (min-width: 1151px) {
+    .summary {
+        padding-left: 10%;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+  .summary {
+      padding-left: 7%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+    .summary {
+        padding-left: 5%;
+    }
+}
+
+@media screen and (max-width: 875px) {
+    .summary {
+        padding-left: 28%;
+    }
+}
+
+@media screen and (max-width: 825px) {
+    .summary {
+        padding-left: 25%;
+    }
+}
+
+@media screen and (max-width: 715px) {
+    .summary {
+        padding-left: 20%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .summary {
+        padding-left: 18%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+  .summary {
+      padding-left: 15%;
+  }
+}
+
+/* @media screen and (min-width: 500px) {
+    .summary {
+        padding-left: 15%;
+    }
+} */
+
+
+.search > input,
+.search > button {
+    background: transparent;
+    border: none;
+    font-size: 1em;
+    color: #fffdfe;
+}
+
+.search > button {
+    border-left: 1px solid rgb(199, 200, 202);
+    float: right;
+}
+
+.search > input:focus,
+.search > button:focus {
+    outline: none;
+}
+
+div.searchBar {
+    float: left;
+    width: 70%;
+}
+
+@media screen and (min-width: 611px) {
+  div.searchBar {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1193px) {
+    div.searchBar {
+        width: 90%
+    }
+}
+
+.lightFont {
+    color: rgb(122, 115, 127);
+}
+
+div.logo {
+    font-size: 1.5em;
+    color: #fffdfe;
+    float: left;
+    padding-right: 20px;
+}
+
+div.logo > span {
+    font-size: 1.8em;
+}
+
+div.rv-xy-plot {
+    margin: auto;
+}
+
+.fa-moon {
+    padding-bottom: 2.5px;
+}
+
+.area-series-example {
+    color: #fffdfe;
+}

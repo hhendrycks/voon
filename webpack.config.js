@@ -16,7 +16,15 @@ module.exports = {
         loader : 'babel-loader',      
         query: {
           presets: ['react', 'es2015']
-       }
+       },
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: 'file-loader?name=./images/[name].[ext]'
       }
     ]
   }

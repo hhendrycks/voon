@@ -1,9 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 const axios = require('axios');
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
-// var items = require('../database-mysql');
-// var items = require('../database-mongo');
+const { Client } = require('pg')
+const dotenv = require('dotenv').config();
+const db = new Client(`postgres://${process.env.USERNAME}:${process.env.PASSWORD}@localhost:5432/voon`);
+
+db.connect();
 
 var app = express();
 
@@ -13,15 +15,15 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 
 app.get('/:zipCode', function (req, res) {
-  console.log("zipCode entered");
-  axios.get(`https://api.darksky.net/forecast/ae237153c7709888817a299211ff1fcd/30.2672,-97.7431`)
-  .then((data) => {
-    res.send(data.data);
+  const query = db.query(`SELECT lat, lng FROM zipcodes WHERE id = '${req.params.zipCode}'`)
+  .then((row) => {
+    const { lat, lng } = row.rows[0];
+    axios.get(`https://api.darksky.net/forecast/${process.env.APIKEY}/${lat},${lng}`)
+    .then((data) => {
+      res.send(data.data);
+    })
   })
-  .catch((error) => {
-    console.log("error in server:", error);
-    res.send(error)
-  });
+  .catch((err) => res.send(err));
 });
 
 app.listen(3000, function() {
