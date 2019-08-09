@@ -1,8 +1,8 @@
-#Voon#
+# Voon #
 
 ![Voon weather app](react-client/dist/images/voon.png?raw=true)
 
-##Given two days, build an MVP weather app for vampires.##
+## Given two days, build an MVP weather app for vampires. ##
 
 _Stack_: 
 * PostgreSQL
